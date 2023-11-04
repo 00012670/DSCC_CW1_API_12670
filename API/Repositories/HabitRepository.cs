@@ -14,7 +14,7 @@ namespace API.Repositories
             _dbContext = dbContext;
         }
 
-        // Private method to find a Habit by its ID in the database
+        // Find a Habit by its ID in the database
         private Habit FindHabitById(int habitId)
         {
             return _dbContext.Habits.Find(habitId);
@@ -33,7 +33,7 @@ namespace API.Repositories
             return _dbContext.Habits.ToList();
         }
 
-        // Public method to get a Habit by its ID
+        // Get a Habit by its ID
         public Habit GetHabitById(int Id)
         {
             // Find the Habit by ID
@@ -51,7 +51,7 @@ namespace API.Repositories
             Save();
         }
 
-        // Public method to delete a Habit by its ID
+        // Delete a Habit by its ID
         public void DeleteHabit(int habitId)
         {
             // Find the Habit by ID

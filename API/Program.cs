@@ -24,6 +24,8 @@ builder.Services.AddHttpsRedirection(options =>
 // Configure the DbContext 
 builder.Services.AddDbContext<DataContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DB")));
+    builder.Services.AddTransient<IHabitRepository, HabitRepository>();
+
 
 var app = builder.Build();
 
