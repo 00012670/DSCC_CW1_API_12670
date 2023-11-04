@@ -16,14 +16,8 @@ namespace API.Repositories
             _dbContext = dbContext;
         }
 
-        // Find a Habit by its ID in the database
-        private Habit FindHabitById(int habitId)
-        {
-            return _dbContext.Habits.Find(habitId);
-        }
-
         // Save changes to the database
-        private void Save()
+        public void Save()
         {
             _dbContext.SaveChanges();
         }
@@ -33,6 +27,12 @@ namespace API.Repositories
         {
             // Return all Habits as a list
             return _dbContext.Habits.ToList();
+        }
+
+        // Find a Habit by its ID in the database
+        public Habit FindHabitById(int habitId)
+        {
+            return _dbContext.Habits.Find(habitId);
         }
 
         // Get a Habit by its ID

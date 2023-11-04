@@ -10,5 +10,6 @@ namespace API.DAL
             Database.EnsureCreated();
         }
         public DbSet<Habit> Habits { get; set; }
+        public DbSet<Progress> Progresses { get; set; }
     }
 }
