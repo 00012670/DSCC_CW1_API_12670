@@ -1,13 +1,13 @@
-﻿using API.Models;        
-using API.Repositories;    
-using Microsoft.AspNetCore.Mvc;  
-using System.Transactions;  
+﻿using API.Models;
+using API.Repositories;
+using Microsoft.AspNetCore.Mvc;
+using System.Transactions;
 
 namespace API.Controllers
 {
     // Defining the ProgressController class that inherits from ControllerBase
     [Route("api/[controller]")]    // Attribute specifying the route for the controller
-    [ApiController]               
+    [ApiController]
     public class ProgressController : ControllerBase
     {
         // Field to hold the IProgressRepository instance
