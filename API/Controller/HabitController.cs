@@ -26,7 +26,7 @@ namespace API.Controllers
             return Ok(result); // Returning an HTTP 200 OK response with the result
         }
 
-        // HTTP GET endpoint to retrieve all habits
+        // HTTP GET method to retrieve all habits
         [HttpGet]
         public IActionResult Get()
         {
@@ -34,7 +34,7 @@ namespace API.Controllers
             return new OkObjectResult(habits);
         }
 
-        // HTTP GET endpoint to retrieve a habit by its ID
+        // HTTP GET method to retrieve a habit by its ID
         [HttpGet, Route("{id}", Name = "GetHabitByID")]
         public IActionResult Get(int id)
         {
@@ -42,15 +42,15 @@ namespace API.Controllers
             return new OkObjectResult(habit);
         }
 
-        // HTTP POST endpoint to create a new habit
+        // HTTP POST method to create a new habit
         [HttpPost]
         public ActionResult Post([FromBody] Habit habit)
         {
             _habitRepository.InsertHabit(habit); // Inserting the new habit
-            return HandleSuccessfulOperation(habit); // Handling the operation with the method
+            return HandleSuccessfulOperation(habit); 
         }
 
-        // HTTP PUT endpoint to update an existing habit by its ID
+        // HTTP PUT method to update an existing habit by its ID
         [HttpPut("{id}")]
         public ActionResult Put(int id, [FromBody] Habit habit)
         {
@@ -60,18 +60,18 @@ namespace API.Controllers
             if (existingHabit != null)
             {
                 _habitRepository.UpdateHabit(habit); // Updating the habit
-                return HandleSuccessfulOperation(null); // Handling the operation with the method
+                return HandleSuccessfulOperation(null);
             }
 
             return NotFound(); // Returning a 404 Not Found response if the habit doesn't exist
         }
 
-        // HTTP DELETE endpoint to delete a habit by its ID
+        // HTTP DELETE method to delete a habit by its ID
         [HttpDelete("{id}")]
         public ActionResult Delete(int id)
         {
-            _habitRepository.DeleteHabit(id); // Deleting the habit by ID
-            return HandleSuccessfulOperation(null); // Handling the operation with the method
+            _habitRepository.DeleteHabit(id); 
+            return HandleSuccessfulOperation(null);
         }
     }
 }
