@@ -9,12 +9,6 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Configure HTTPS redirection before building the app
-builder.Services.AddHttpsRedirection(options =>
-{
-    options.HttpsPort = 7256; // Set HTTPS port
-});
-
 // Configure the DbContext 
 builder.Services.AddDbContext<DataContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DB")));

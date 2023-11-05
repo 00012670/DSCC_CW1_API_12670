@@ -1,8 +1,6 @@
 ﻿﻿using API.DAL;
 using API.Models;
-using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore; 
-using System.Linq;
 
 namespace API.Repositories
 {
@@ -23,6 +21,7 @@ namespace API.Repositories
         {
             _dbContext.SaveChanges();
         }
+
 
         // Get all Progresses from the database, including related Habits
         public IEnumerable<Progress> GetProgresses()
@@ -81,6 +80,8 @@ namespace API.Repositories
             var existingProgress = _dbContext.Progresses.Find(progress.ID);
 
             // Update the existing Progress's properties with the new values
+
+            //existingProgress.Habit.ID = progress.Habit.ID;
             existingProgress.HabitProgress = progress.HabitProgress;
             existingProgress.IsCompleted = progress.IsCompleted;
             existingProgress.Note = progress.Note;
