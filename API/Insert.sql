@@ -15,13 +15,12 @@ CREATE TABLE Habits (
 );
 
 CREATE TABLE Progresses (
-    ID INT IDENTITY, 
+    ID INT IDENTITY PRIMARY KEY, 
     HabitID INT,
     HabitProgress INT,
     IsCompleted BIT,
     Note TEXT,
     EndDate DATE,
-    PRIMARY KEY (HabitID, ID),
     FOREIGN KEY (HabitID) REFERENCES Habits (ID)
 );
 
